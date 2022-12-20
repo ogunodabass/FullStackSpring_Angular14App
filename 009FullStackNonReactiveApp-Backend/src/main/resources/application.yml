@@ -1,0 +1,49 @@
+
+        
+spring:
+  profiles:
+    active:
+    - test
+  data:
+    rest:
+      base-path: /api
+      default-media-type:
+        charset: UTF-8
+        
+  datasource:
+    url: jdbc:mysql://localhost:3306/test4?useTimezone=true&serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: ogun
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+        generate_statistics: true
+    open-in-view: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+server:
+  servlet:
+    context-path: /api
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: on-param
+    include-exception: true
+logging:
+  level:
+    web: info
+    org:
+      hibernate: info
+
+
